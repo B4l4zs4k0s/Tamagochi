@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    html {
+        text-align: center;
+        padding: auto;
+    }
+
+    form {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    option {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+<a th:href="'/?name=' + ${name.getName()}">Information</a><br>
+<a th:href="'/nutritionStore?name=' + ${name.getName()}">Nutrition Store</a><br>
+
+<form method="post">
+    Tricks
+    <select name="trick">
+        <option value="Write HTML">Write HTML</option>
+        <option value="Do a back-flip">Do a back-flip</option>
+        <option value="Encrypted talk (What does the fox say?)"> Encrypted talk</option>
+        <option value="Trade chicken on dark-net">Dark-net pro</option>
+    </select>
+    <button type="submit" value="Learn">Learn</button>
+</form>
+</body>
+</html>

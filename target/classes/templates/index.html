@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<style>
+    html {
+        text-align: center;
+        padding: auto;
+    }
+
+    form {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    li {
+        font-family: Helvetica;
+        font-size: 20px;
+        display: block;
+
+    }
+
+    option {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+
+    table {
+        font-family: Helvetica;
+        font-size: 20px;
+        alignment: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    tr {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Fox Club</title>
+</head>
+<body>
+<a th:href="'/login'">Change Fox</a><br>
+<a th:href="'/nutritionStore?name=' + ${name.getName()}">Nutrition Store</a><br>
+<a th:href="'/trickCenter?name=' + ${name.getName()}">Trick Center</a><br>
+<img th:src="@{/images/download.jpeg}"/>
+<p th:text="'This is Mr.' + ${name.getName()}  +  '. Currently living on ' + ${name.getFood()} +' and ' + ${name.getDrink} +'.'"></p>
+<h3>Number of Known Tricks</h3>
+<table>
+    <tr th:if="${name.getListOfTricks().isEmpty()}">
+        <td colspan="2">This fox knows no tricks yet :( Teach him !</td>
+    </tr>
+    <tr th:if="${name.getListOfTricks().size()>0}" th:text="${name.getListOfTricks().size()}"/>
+</table>
+<h3>Known Tricks</h3>
+<table>
+    <tr th:each="trick : ${name.getListOfTricks()}" th:object="${trick}">
+        <td th:text="${trick}"></td>
+    </tr>
+</table>
+</body>
+</html>

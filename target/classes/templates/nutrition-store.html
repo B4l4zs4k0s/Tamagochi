@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<style>
+    html {
+        text-align: center;
+        padding: auto;
+    }
+
+    form {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    option {
+        font-family: Helvetica;
+        font-size: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition Store</title>
+</head>
+<body>
+<a th:href="'/?name=' + ${name.getName()}">Information</a><br>
+<a th:href="'/trickCenter?name=' + ${name.getName()}">Trick Center</a><br>
+<h1 th:text="${name.getName()} + '\'s Nutrition Store'"></h1>
+<form method="post">
+    Food
+    <select name="food">
+        <option value="pizza">Pizza</option>
+        <option value="apple">Apple</option>
+        <option value="chicken">Chicken</option>
+        <option value="fries">Fries</option>
+    </select>
+    Drink
+    <select name="drink">
+        <option value="water">Water</option>
+        <option value="coke">Coke</option>
+        <option value="juice">Juice</option>
+        <option value="beer">Beer</option>
+    </select>
+    <button type="submit">CHANGE</button>
+</form>
+</body>
+</html>
